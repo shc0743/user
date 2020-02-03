@@ -1,1 +1,18 @@
-
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="sometool.js"></script>
+<script>
+window.onload=function(){
+if (navigator.cookieEnabled!==true)
+{
+document.write("Cookie已被禁用,请开启Cookie或更换浏览器")
+return;
+}
+var login=getCookie("login")
+if(login==""){
+window.open("login/","_self")
+} else {
+window.open()
+}
+}
+</script>
