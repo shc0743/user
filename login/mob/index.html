@@ -8,9 +8,27 @@
 <p>Login</p>
 <p>Username<br><input style="width:350px;height:30px"></p>
 <o>Password<br><input type="password" style="width:350px;height:30px"></p>
-<button style="background-color:#00aa00;color:#ffffff;width:350px;height:30px">Login</button>
+<button style="background-color:#00aa00;color:#ffffff;width:350px;height:30px" onclick="log(this)">Login</button>
 <br><br></div>
 Don't had a user?<a href="../../join/" style="text-decoration:none">Go to join</a>
 <br>2020..Inc<br>
+
+<script>
+function log(o){
+var a=document.getElementsByTagName('input')
+var a1=a[0]
+var a2=a[1]
+if((a1=="admin"&&a2=="123456")||(false)){
+o.innerHTML="Login successfully!"
+setTimeout("location.href='/'",3000)
+setCookieBySecond("login",true,900)
+} else {
+o.innerHTML="Incorrect username or password."
+o.style.backgroundColor="red"
+setTimeout("o.style.backgroundColor='#00aa00'",3000)
+}
+}
+</script>
+
 </body>
 </html>
