@@ -25,7 +25,10 @@ setCookieBySecond("login",true,900)
 } else {
 o.innerHTML="Incorrect username or password."
 o.style.backgroundColor="red"
-setTimeout("o.style.backgroundColor='#00aa00'",3000)
+setTimeout(function(){
+o.innerHTML="Login"
+o.style.backgroundColor='#00aa00'"
+},3000)
 }
 }
 </script>
