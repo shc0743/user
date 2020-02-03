@@ -4,3 +4,18 @@
 Username<input>Password<input type=password><button>Login</button><br>
 Don't had a user?<a href="../../join/" style="text-decoration:none">Go to join</a>
 <br>2020..Inc<br>
+
+<script>
+function log(o){
+var a=document.getElementsByTagName('input')
+var a1=a[0]
+var a2=a[1]
+if((a1=="admin"&&a2=="123456")||(false)){
+o.innerHTML="Login successfully!"
+setTimeout("location.href='/'",3000)
+setCookieBySecond("login",true,900)
+} else {
+o.innerHTML="Incorrect username or password."
+}
+}
+</script>
