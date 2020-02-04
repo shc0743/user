@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="user-scalable=yes">
+<body style="width: 90%;max-width: 450px;margin: 0 auto;text-align:center;">
+<title>Settings</title>
+<h1>Settings</h1>
+<div hidden><div class="application-main " data-commit-hovercards-enabled="" style="-webkit-text-size-adjust: auto; box-sizing: border-box;"><main id="js-pjax-container" data-pjax-container="" style="box-sizing: border-box;"><div class="auth-form Box p-4 mt-3" style="box-sizing: border-box; background-color: rgb(255, 255, 255); border: 1px solid rgb(209, 213, 218); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; margin: 0px auto; width: 340px; padding: 24px !important;"><h1 class="f2-light text-center" style="box-sizing: border-box; margin: 0px; font-size: 22px !important; font-weight: 300 !important; text-align: center !important;">Are you sure you want to sign out?</h1><input type="button" value="Sign out" class="btn btn-block f4 py-3 mt-5" style="font-family: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: 600; font-stretch: inherit; line-height: 20px; margin: 20px 0px 0px; overflow: visible; -webkit-appearance: none; position: relative; display: block; padding-right: 12px; padding-left: 12px; white-space: nowrap; vertical-align: middle; cursor: pointer; -webkit-user-select: none; background-size: 110% 110%; border-color: rgba(27, 31, 35, 0.2); border-top-left-radius: 0.25em; border-top-right-radius: 0.25em; border-bottom-right-radius: 0.25em; border-bottom-left-radius: 0.25em; color: rgb(36, 41, 46); background-color: rgb(239, 243, 246); background-image: linear-gradient(-180deg, rgb(250, 251, 252), rgb(239, 243, 246) 90%); width: 290px; font-size: 16px !important; padding-top: 16px !important; padding-bottom: 16px !important; background-position: -1px -1px; background-repeat: repeat no-repeat;" onclick="logout()"></div></main></div><div class="footer container-lg p-responsive py-6 mt-6 f6" role="contentinfo" style="-webkit-text-size-adjust: auto; box-sizing: border-box; max-width: 1012px; margin-right: auto; margin-left: auto; margin-top: 40px !important; padding: 40px 16px !important; font-size: 12px !important;"><ul class="list-style-none d-flex flex-justify-center" style="box-sizing: border-box; padding-left: 0px; margin-top: 0px; margin-bottom: 0px; caret-color: rgb(36, 41, 46); color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; -webkit-text-size-adjust: 100%; justify-content: center !important; list-style: none !important; display: flex !important;"></ul><br class="Apple-interchange-newline"></div></div>
+<button style="width:395px;height:30px;background-color:#00aa00;color:#ffffff;" onclick="logout()">Sign out</button>
+<script>
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function setCookieBySecond(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+         }
+        if (c.indexOf(name)  == 0) {
+            return c.substring(name.length, c.length);
+         }
+    }
+    return "";
+}
+function removeCookie(cname){
+setCookie(cname,'',-1)
+}
+
+function logout(){
+removeCookie("login")
+}
+</script>
