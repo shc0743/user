@@ -51,7 +51,7 @@ var a2=a[1].value
 if((a1=="admin"&&a2=="123456")||(false)){
 o.innerHTML="Login successfully!"
 setTimeout("location.href='/'",3000)
-setCookieBySecond("login",true,900)
+setCookieBySecond("login",a1,900)
 } else {
 o.innerHTML="Incorrect username or password."
 o.style.backgroundColor="red"
