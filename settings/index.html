@@ -1,0 +1,31 @@
+<script>
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+         }
+        if (c.indexOf(name)  == 0) {
+            return c.substring(name.length, c.length);
+         }
+    }
+    return "";
+}
+window.onload=function(){
+try{
+if (navigator.cookieEnabled!==true) {
+document.write("<h1><center>404 Not Found</center></h1>")
+return;
+}
+var login=getCookie("login")
+if(login==""){
+document.write("<h1><center>404 Not Found</center></h1>")
+} else {
+window.location.href="index/"
+}
+
+ }catch(err){alert(err)}
+}
+</script>
