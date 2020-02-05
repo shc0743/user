@@ -30,7 +30,7 @@ if(us==""||us==null){
   inpass.a=false
  }
 }
-function checkInp2(v){
+function checkInp2(v){try{
 var va=(v.length>7)
 var vb=(v.search(/[0-9]/))
 var vc=(v.search(/[A-z]/))
@@ -44,6 +44,8 @@ if(((va&&vb&&vc)||(vd))&&ve){
   o.style.backgroundColor="#ff0000"
   inpass.b=false
  }
+
+}catch(err){alert(err)}
 }
 function unDisButton(){
 if(inpass.a&&inpass.b&&inpass.c){
