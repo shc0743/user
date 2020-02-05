@@ -32,8 +32,8 @@ if(us==""||us==null){
 }
 function checkInp2(v,o){try{
 var va=(v.length>7)
-var vb=(v.search(/[0-9]/))
-var vc=(v.search(/[A-z]/))
+var vb=(v.search(/[0-9]/)!==-1)
+var vc=(v.search(/[A-z]/)!==-1)
 var vd=(v.length>14)
 var ve=(v.length<36)
 if(((va&&vb&&vc)||(vd))&&ve){
