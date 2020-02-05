@@ -7,7 +7,7 @@
 <div style="text-align:left;border:1px solid #cccccc">
 <b>Username</b><br>&nbsp;<input style="width:350px;height:30px" onkeyup="checkInp1(this.value,this)" placeholder="Input your username"><br>
 <b>Password</b><br>&nbsp;<input type="password" style="width:350px;height:30px" onkeyup="checkInp2(this.value,this)" placeholder="((length>14)or((length>8)and(had letter)and(had number)))and(length<36)"><br>
-<b>Type</b><br><input type=radio disabled onclick="inpass.c=false">Public-Support network access<br><input type=radio onclick="inpass.c=true">Local-Local access only<br>
+<b>Type</b><br><input type=radio disabled onclick="inpass.c=false">Public-Support network access<br><input type=radio onclick="inpass.c=true;unDisButton()">Local-Local access only<br>
 <br>
 <div style="text-align:center;margin: 0 auto;"> &nbsp;<button type=button disabled style="font-family: inherit; font-size: 18px; height:20px font-style: inherit; font-variant-caps: inherit; font-stretch: inherit; line-height: inherit; margin: 0px; overflow: visible; -webkit-appearance: none; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; width: 350px; padding: 16px 24px; color: rgba(255, 255, 255, 0.498039); white-space: nowrap; vertical-align: middle; -webkit-user-select: none; background-color: rgb(16, 116, 231); border-color: rgb(16, 116, 231); transition: 0.2s; pointer-events: none; opacity: 0.65;" onclick="log(this)"><b>Submit</b></button></div>
 <br></div>
@@ -48,7 +48,7 @@ if(((va&&vb&&vc)||(vd))&&ve){
 }catch(err){alert(err)}
 }
 function unDisButton(){
-if(inpass.a&&inpass.b&&inpass.c){
+if((inpass.a)&&(inpass.b)&&(inpass.c)){
 document.getElementsByTagName('button')[0].disabled=0
 } else {document.getElementsByTagName('button')[0].disabled=1}
 }
