@@ -5,9 +5,9 @@
 <body style="width: 90%;max-width: 450px;margin: 0 auto;text-align:center;">
 <div style="font-size:50px"><b>Join for this</b></div><br>
 <div style="text-align:left;border:1px solid #cccccc">
-<b>Username</b><br>&nbsp;<input style="width:350px;height:30px" onkeyup="checkInp1(this.value)"><br>
-<b>Password</b><br>&nbsp;<input type="password" style="width:350px;height:30px" onkeyup="checkInp2(this.value)"><br>
-<b>Type</b><br><input type=radio disabled>Public<br><input type=radio>Local<br>
+<b>Username</b><br>&nbsp;<input style="width:350px;height:30px" onkeyup="checkInp1(this.value,this)"><br>
+<b>Password</b><br>&nbsp;<input type="password" style="width:350px;height:30px" onkeyup="checkInp2(this.value)" placeholder="((length>14)or((length>8)and(had letter)and(had number)))and(length<36)"><br>
+<b>Type</b><br><input type=radio disabled onclick="inpass.c=false">Public-Support network access<br><input type=radio onclick="inpass.c=true">Local-Local access only<br>
 <br>
 <div style="text-align:center;margin: 0 auto;"> &nbsp;<button type=button disabled style="font-family: inherit; font-size: 18px; height:20px font-style: inherit; font-variant-caps: inherit; font-stretch: inherit; line-height: inherit; margin: 0px; overflow: visible; -webkit-appearance: none; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; width: 350px; padding: 16px 24px; color: rgba(255, 255, 255, 0.498039); white-space: nowrap; vertical-align: middle; -webkit-user-select: none; background-color: rgb(16, 116, 231); border-color: rgb(16, 116, 231); transition: 0.2s; pointer-events: none; opacity: 0.65;" onclick="log(this)"><b>Submit</b></button></div>
 <br></div>
@@ -16,10 +16,27 @@ Have user?<a href="../../login/" style="text-decoration:none">Go to sign in</a>
 </div>
 
 <script>
-function checkInp1(v){
-
+inpass={}
+function checkInp1(v,o){
+var us=localStorage.getItem("user"+v)
+if(us==""||us==null){
+  localStorage.setItem("user"+v,v)
+  inpass.a=true
+  o.style.backgroundColor="#00ff00"
+  unDisButton()
+ } else {
+  o.style.backgroundColor="#ff0000"
+  inpass.a=false
+ }
 }
 function checkInp2(v){
+var va=(v.length>7)
+var vb=(v.search(/[0-9]/))
+var vc=(v.search(/[A-z]/))
+var vd=(v.length>14)
+var ve=(v.length<36)
+if(((va&&vb&&vc)||(vd))&&ve){
 
+ }
 }
 </script>
