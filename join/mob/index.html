@@ -9,7 +9,7 @@
 <!--<b>Password</b><br>&nbsp;<input type="password" style="width:350px;height:30px" onkeyup="checkInp2(this.value,this)" placeholder="((length>14)or((length>7)and(had letter)and(had number)))and(length<36)"><br>
 <b>Type</b><br><input type=radio disabled onclick="inpass.c=false">Public-Support network access<br><input type=radio onclick="inpass.c=true;unDisButton()">Local-Local access only<br>-->
 <br>
-<div style="text-align:center;margin: 0 auto;"> &nbsp;<button disabled type=button id="nxt" style="background-color:rgb(16,116,231);width:350px;color:#ffffff;height:25px;" onclick="next(this)"><b>Next</b></button></div>
+<div style="text-align:center;margin: 0 auto;"> &nbsp;<button disabled type=button id="nxt" style="background-color:rgb(255,0,0);width:350px;color:#ffffff;height:25px;" onclick="next(this)"><b>Next</b></button></div>
 <br></div>
 Have user?<a href="../../login/" style="text-decoration:none">Go to sign in</a>
 <br>2020..Inc<br>
@@ -29,10 +29,12 @@ if(us==""||us==null){
   inpass=true
   o.style.backgroundColor="#00ff00"
   nxt.disabled=0
+  nxt.style.backgroundColor="rgb(16,116,236)"
  } else {
   o.style.backgroundColor="#ff0000"
   inpass=false
   nxt.disabled=1
+  nxt.style.backgroundColor="red"
  }
 }
 function checkInp2(v,o){try{
