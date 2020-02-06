@@ -61,10 +61,11 @@ document.getElementsByTagName('button')[0].disabled=0
 function next(o){
 if(inpass){
 o.disabled=1
-o.innerHTML="Nexting ing..."
+o.innerHTML="<b>Nexting ing...</b>"
 setTimeout(function(){
 var in1=document.getElementsByTagName('input')[0].value
 setCookieBySecond("jointemp",in1,15)
+open("i2.html","_self")
 },500)
   } 
 }
