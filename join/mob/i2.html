@@ -6,9 +6,9 @@
 <div style="font-size:50px"><b>Join for this</b></div><br>
 <div style="text-align:left;border:1px solid #cccccc">
 <b>Select a verification mode</b><br>
-&nbsp;<input type=radio name=vermode onclick="unDisBtn()" data-type="1">Only by username<br>
-&nbsp;<input type=radio name=vermode onclick="unDisBtn()" data-type="2">By username and password<br>
-&nbsp;<input type=radio name=vermode onclick="unDisBtn()" data-type="3">By username and [E-mail address or password]<br>
+&nbsp;<input type=radio name=vermode onclick="unDisBtn()" value="1">Only by username<br>
+&nbsp;<input type=radio name=vermode onclick="unDisBtn()" value="2">By username and password<br>
+&nbsp;<input type=radio name=vermode onclick="unDisBtn()" value="3">By username and [E-mail address or password]<br>
 <br>
 <div style="text-align:center;margin: 0 auto;"> &nbsp;<button disabled type=button id="nxt" style="background-color:rgb(255,0,0);width:350px;color:#ffffff;height:25px;" onclick="next(this)"><b>Next</b></button></div>
 <br></div>
@@ -47,7 +47,7 @@ o.disabled=1
 o.innerHTML="<b>Nexting ing...</b>"
 setTimeout(function(){try{
 var sct=document.querySelectorAll("input[type=radio][name=vermode][checked]")
-sct=sct.getAttribute("data-type");
+sct=sct.value;
 if(sct=="1"){
 localStorage.setItem("user"+usern,usern+",username")
 nxt.innerHTML="<b>Join succe!</b>"
