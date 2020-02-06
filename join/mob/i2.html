@@ -43,6 +43,7 @@ nxt.disabled=0
 nxt.style.backgroundColor="rgb(16,116,231)"
 }
 function next(o){
+try{
 o.disabled=1
 o.innerHTML="<b>Nexting ing...</b>"
 setTimeout(function(){
@@ -51,12 +52,13 @@ sct=sct.getAttribute("data-type");
 if(sct=="1"){
 localStorage.setItem("user"+usern,usern+",username")
 nxt.innerHTML="<b>Join succe!</b>"
-setTimeout("open('../../login/','_self')",750)
+open('../../login/','_self')
 } else if (sct=="2"){
 
 } else if (sct=="3"){
 
 }
 },500)
+  }catch(err){alert(err)}
 }
 </script>
