@@ -13,6 +13,14 @@ Have user?<a href="../../login/" style="text-decoration:none">Go to sign in</a>
 </div>
 
 <script>
+window.addEventListener("load",function(){
+wth=Number(screen.width)+"px"
+nwth=Number(screen.width)
+var inEle=document.getElementsByTagName('input')
+for(var i=0;i<inEle.length;i++){inEle[i].style.width=nwth-100+"px"}
+var btnEle=document.getElementsByTagName('button')
+for(var i=0;i<btnEle.length;i++){btnEle[i].style.width=nwth-100+"px"}
+})
 function setCookieBySecond(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 1000));
