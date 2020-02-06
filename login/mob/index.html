@@ -12,9 +12,10 @@ Don't had a user?<a href="../../join/" style="text-decoration:none">Go to join</
 <br>2020..Inc<br>
 
 <script>
-wth=screen.width+"px"
-nxt.style.width=wth
-document.getElementsByTagName('input')[0].style.width=wth
+wth=Number(screen.width)+"px"
+nwth=Number(screen.width)
+nxt.style.width=nwth-100+"px"
+document.getElementsByTagName('input')[0].style.width=nwth-100+"px"
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
