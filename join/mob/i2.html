@@ -47,6 +47,7 @@ o.disabled=1
 o.innerHTML="<b>Nexting ing...</b>"
 setTimeout(function(){try{
 var sct=document.querySelectorAll("input[type=radio][name=vermode][checked]")
+var sct2=sct;
 sct=sct.value;
 if(sct=="1"){
 localStorage.setItem("user"+usern,usern+",username")
@@ -56,7 +57,7 @@ open('../../login/','_self')
 
 } else if (sct=="3"){
 
-} else {alert(sct+"\n"+typrof(sct))}
+} else {alert(sct+"\n"+typeof(sct2))}
   }catch(err){alert(err)}
 },500)
 }
