@@ -6,13 +6,13 @@
 <div style="font-size:50px"><b>Sign in to this</b></div><br>
 <div style="text-align:left;border:1px solid #cccccc">
 <b>Username</b><br>&nbsp;<input style="width:350px;height:30px" onkeyup="checkInp1(this.value,this)" placeholder="Input your username"><br>
-<br><div style="text-align:center"><button type=button id=nxt style="background-color:#00aa00;color:#ffffff;height:30px" onclick="log(this)">Next</button></div>
+<br><div style="text-align:center"><button type=button id=nxt style="background-color:#00aa00;color:#ffffff;width:350px;height:30px" onclick="log(this)">Next</button></div>
 <br></div>
 Don't had a user?<a href="../../join/" style="text-decoration:none">Go to join</a>
 <br>2020..Inc<br>
 
 <script>
-nxt.style.width=parseInt(document.body.maxWidth)-100+"px"
+nxt.style.width=parseInt(screen.width)-100+"px"
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -45,11 +45,17 @@ setCookie(cname,'',-1)
 function log(o){
 var a=document.getElementsByTagName('input')
 var a1=a[0].value
-var a2=a[1].value
-if((a1=="admin"&&a2=="123456")||(false)){
-o.innerHTML="Login successfully!"
-setTimeout("location.href='/'",3000)
-setCookieBySecond("login",a1,3600)
+var a3=localStorage.getItem("user"+a1)
+if(a3!==null||a3!==""){a3=a3.split(",")}
+if(a1=="admin"||a1==a3[0]){
+o.innerHTML="Nexting ing..."
+setTimeout(function(){
+if(a3[1]=="null"){
+
+} else {
+open('ipw','_self')
+ }
+},500)
 } else {
 o.innerHTML="Incorrect username or password."
 o.style.backgroundColor="red"
