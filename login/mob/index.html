@@ -12,8 +12,14 @@ Don't had a user?<a href="../../join/" style="text-decoration:none">Go to join</
 <br>2020..Inc<br>
 
 <script>
+window.addEventListener("load",function(){
 wth=Number(screen.width)+"px"
 nwth=Number(screen.width)
+var inEle=document.getElementsByTagName('input')
+for(var i=0;i<inEle.length;i++){inEle[i].style.width=nwth-100+"px"}
+var btnEle=document.getElementsByTagName('button')
+for(var i=0;i<btnEle.length;i++){btnEle[i].style.width=nwth-100+"px"}
+})
 nxt.style.width=nwth-100+"px"
 document.getElementsByTagName('input')[0].style.width=nwth-100+"px"
 function setCookie(cname, cvalue, exdays) {
