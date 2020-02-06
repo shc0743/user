@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,%20initial-scale=1.0,user-scalable=yes">
+<title>Join for this</title>
+<body style="width:90%;margin: 0 auto;text-align:center;">
+<div style="font-size:50px"><b>Join for this</b></div><br>
+<div style="text-align:left;border:1px solid #cccccc">
+<b>Select a verification mode</b><br>
+&nbsp;<input type=radio name=vermode onclick="unDisBtn()">Only by username<br>
+&nbsp;<input type=radio name=vermode onclick="unDisBtn()">By username and password<br>
+&nbsp;<input type=radio name=vermode onclick="unDisBtn()">By username and [E-mail address or password]<br>
+<br>
+<div style="text-align:center;margin: 0 auto;"> &nbsp;<button disabled type=button id="nxt" style="background-color:rgb(255,0,0);width:350px;color:#ffffff;height:25px;" onclick="next(this)"><b>Next</b></button></div>
+<br></div>
+Have user?<a href="../../login/" style="text-decoration:none">Go to sign in</a>
+<br>2020..Inc<br>
+</div>
+
+<script>
+function setCookieBySecond(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+         }
+        if (c.indexOf(name)  == 0) {
+            return c.substring(name.length, c.length);
+         }
+    }
+    return "";
+}
+window.usern=getCookie("jointemp")
+function unDisBtn(){
+nxt.disabled=0
+nxt.style.backgroundColor="rgb(16,116,231)"
+}
+</script>
