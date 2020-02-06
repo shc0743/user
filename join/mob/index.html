@@ -9,7 +9,7 @@
 <!--<b>Password</b><br>&nbsp;<input type="password" style="width:350px;height:30px" onkeyup="checkInp2(this.value,this)" placeholder="((length>14)or((length>7)and(had letter)and(had number)))and(length<36)"><br>
 <b>Type</b><br><input type=radio disabled onclick="inpass.c=false">Public-Support network access<br><input type=radio onclick="inpass.c=true;unDisButton()">Local-Local access only<br>-->
 <br>
-<div style="text-align:center;margin: 0 auto;"> &nbsp;<button type=button disabled="disabled" style="font-family: inherit; font-size: 18px; height:20px font-style: inherit; font-variant-caps: inherit; font-stretch: inherit; line-height: inherit; margin: 0px; overflow: visible; -webkit-appearance: none; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; width: 350px; padding: 16px 24px; color: rgba(255, 255, 255, 0.498039); white-space: nowrap; vertical-align: middle; -webkit-user-select: none; background-color: rgb(16, 116, 231); border-color: rgb(16, 116, 231); transition: 0.2s; pointer-events: none; opacity: 0.65;" onclick="next(this)"><b>Next</b></button></div>
+<div style="text-align:center;margin: 0 auto;"> &nbsp;<button type=button disabled="disabled" id="nxt" style="font-family: inherit; font-size: 18px; height:20px font-style: inherit; font-variant-caps: inherit; font-stretch: inherit; line-height: inherit; margin: 0px; overflow: visible; -webkit-appearance: none; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; width: 350px; padding: 16px 24px; color: rgba(255, 255, 255, 0.498039); white-space: nowrap; vertical-align: middle; -webkit-user-select: none; background-color: rgb(16, 116, 231); border-color: rgb(16, 116, 231); transition: 0.2s; pointer-events: none; opacity: 0.65;" onclick="next(this)"><b>Next</b></button></div>
 <br></div>
 Have user?<a href="../../login/" style="text-decoration:none">Go to sign in</a>
 <br>2020..Inc<br>
@@ -28,11 +28,11 @@ var us=localStorage.getItem("user"+v)
 if(us==""||us==null){
   inpass=true
   o.style.backgroundColor="#00ff00"
-  document.getElementsByTagName('button')[0].disabled=0
+  nxt.disabled=0
  } else {
   o.style.backgroundColor="#ff0000"
   inpass=false
-  document.getElementsByTagName('button')[0].disabled=1
+  nxt.disabled=1
  }
 }
 function checkInp2(v,o){try{
