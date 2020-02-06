@@ -6,28 +6,32 @@
 <div style="font-size:50px"><b>Join for this</b></div><br>
 <div style="text-align:left;border:1px solid #cccccc">
 <b>Username</b><br>&nbsp;<input style="width:350px;height:30px" onkeyup="checkInp1(this.value,this)" placeholder="Input your username"><br>
-<b>Password</b><br>&nbsp;<input type="password" style="width:350px;height:30px" onkeyup="checkInp2(this.value,this)" placeholder="((length>14)or((length>7)and(had letter)and(had number)))and(length<36)"><br>
-<b>Type</b><br><input type=radio disabled onclick="inpass.c=false">Public-Support network access<br><input type=radio onclick="inpass.c=true;unDisButton()">Local-Local access only<br>
+<!--<b>Password</b><br>&nbsp;<input type="password" style="width:350px;height:30px" onkeyup="checkInp2(this.value,this)" placeholder="((length>14)or((length>7)and(had letter)and(had number)))and(length<36)"><br>
+<b>Type</b><br><input type=radio disabled onclick="inpass.c=false">Public-Support network access<br><input type=radio onclick="inpass.c=true;unDisButton()">Local-Local access only<br>-->
 <br>
-<div style="text-align:center;margin: 0 auto;"> &nbsp;<button type=button disabled style="font-family: inherit; font-size: 18px; height:20px font-style: inherit; font-variant-caps: inherit; font-stretch: inherit; line-height: inherit; margin: 0px; overflow: visible; -webkit-appearance: none; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; width: 350px; padding: 16px 24px; color: rgba(255, 255, 255, 0.498039); white-space: nowrap; vertical-align: middle; -webkit-user-select: none; background-color: rgb(16, 116, 231); border-color: rgb(16, 116, 231); transition: 0.2s; pointer-events: none; opacity: 0.65;" onclick="log(this)"><b>Submit</b></button></div>
+<div style="text-align:center;margin: 0 auto;"> &nbsp;<button type=button disabled style="font-family: inherit; font-size: 18px; height:20px font-style: inherit; font-variant-caps: inherit; font-stretch: inherit; line-height: inherit; margin: 0px; overflow: visible; -webkit-appearance: none; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; width: 350px; padding: 16px 24px; color: rgba(255, 255, 255, 0.498039); white-space: nowrap; vertical-align: middle; -webkit-user-select: none; background-color: rgb(16, 116, 231); border-color: rgb(16, 116, 231); transition: 0.2s; pointer-events: none; opacity: 0.65;" onclick="next(this)"><b>Next</b></button></div>
 <br></div>
 Have user?<a href="../../login/" style="text-decoration:none">Go to sign in</a>
 <br>2020..Inc<br>
 </div>
 
 <script>
-inpass={
-a:false,b:false,c:false
+function setCookieBySecond(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+inpass=false
 function checkInp1(v,o){
 var us=localStorage.getItem("user"+v)
 if(us==""||us==null){
-  inpass.a=true
+  inpass=true
   o.style.backgroundColor="#00ff00"
   unDisButton()
  } else {
   o.style.backgroundColor="#ff0000"
-  inpass.a=false
+  inpass=false
  }
 }
 function checkInp2(v,o){try{
@@ -37,20 +41,28 @@ var vc=(v.search(/[A-z]/)!==-1)
 var vd=(v.length>14)
 var ve=(v.length<36)
 if(((va&&vb&&vc)||(vd))&&ve){
-  inpass.b=true
+  inpass=true
   o.style.backgroundColor="#00ff00"
   unDisButton()
  } else {
   o.style.backgroundColor="#ff0000"
-  inpass.b=false
+  inpass=false
  }
 
 }catch(err){alert(err)}
 }
 function unDisButton(){
 try{
-if((inpass.a)&&(inpass.b)&&(inpass.c)){
+if(inpass){
 document.getElementsByTagName('button')[0].disabled=0
 } else {document.getElementsByTagName('button')[0].disabled=1}}catch(err){alert(err)}
+}
+function next(o){
+o.disabled=1
+o.innerHTML="Nexting ing..."
+setTimeout(function(){
+var in1=document.getElementsByTagName('input')[0].value
+setCookieBySecond("jointemp",in1,15)
+},500)
 }
 </script>
