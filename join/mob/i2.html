@@ -43,10 +43,9 @@ nxt.disabled=0
 nxt.style.backgroundColor="rgb(16,116,231)"
 }
 function next(o){
-try{
 o.disabled=1
 o.innerHTML="<b>Nexting ing...</b>"
-setTimeout(function(){
+setTimeout(function(){try{
 var sct=document.querySelectorAll("input[type=radio][name=vermode][checked]")
 sct=sct.getAttribute("data-type");
 if(sct=="1"){
@@ -58,7 +57,7 @@ open('../../login/','_self')
 } else if (sct=="3"){
 
 }
-},500)
   }catch(err){alert(err)}
+},500)
 }
 </script>
