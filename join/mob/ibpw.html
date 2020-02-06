@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<title>Join for this</title>
+<body style="width:90%;margin: 0 auto;text-align:center;"><div style="font-size:50px"><b>Join for this</b></div><br>
+<div style="text-align:left;border:1px solid #cccccc">
+<b>Password</b><br>&nbsp;<input type="password" style="width:350px;height:30px" onkeyup="checkInp2(this.value,this)" placeholder="((length>14)or((length>7)and(had letter)and(had number)))and(length<36)"><br>
+<br>
+<div style="text-align:center;margin: 0 auto;"> &nbsp;<button disabled type=button id="nxt" style="background-color:rgb(255,0,0);width:350px;color:#ffffff;height:25px;" onclick="next(this)"><b>Next</b></button></div>
+<br></div>
+Have user?<a href="../../login/" style="text-decoration:none">Go to sign in</a>
+<br>2020..Inc<br>
+</div>
+
+<script>
+function setCookieBySecond(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+         }
+        if (c.indexOf(name)  == 0) {
+            return c.substring(name.length, c.length);
+         }
+    }
+    return "";
+}
+window.usern=getCookie("jointemp")
+function checkInp2(v,o){
+var va=(v.length>7)
+var vb=(v.search(/[0-9]/)!==-1)
+var vc=(v.search(/[A-z]/)!==-1)
+var vd=(v.length>14)
+var ve=(v.length<36)
+if(((va&&vb&&vc)||(vd))&&ve){
+  inpass=true
+  o.style.backgroundColor="#00ff00"
+  nxt.disabled=0
+  nxt.style.backgroundColor="rgb(16,116,231)"
+ } else {
+  o.style.backgroundColor="#ff0000"
+  inpass=false
+  nxt.disabled=1
+  nxt.style.backgroundColor="red"
+ }
+}
+function next(o){
+
+}
+</script>
