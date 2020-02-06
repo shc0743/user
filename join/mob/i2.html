@@ -54,11 +54,13 @@ sct=itype
 if(sct=="1"){
 localStorage.setItem("user"+usern,usern+",username")
 nxt.innerHTML="<b>Join succe!</b>"
-open('../../login/','_self')
+setTimeout("open('../../login/','_self')",750)
 } else if (sct=="2"){
-
+setCookieBySecond("jointemp",usern,15)
+open("ibpw.html","_self")
 } else if (sct=="3"){
-
+setCookieBySecond("jointemp",usern,15)
+open("ibpae.html","_self")
 } else {alert(sct+"\n"+typeof(sct2))}
   }catch(err){alert(err)}
 },500)
