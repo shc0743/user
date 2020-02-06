@@ -28,10 +28,11 @@ var us=localStorage.getItem("user"+v)
 if(us==""||us==null){
   inpass=true
   o.style.backgroundColor="#00ff00"
-  unDisButton()
+  document.getElementsByTagName('button')[0].disabled=0
  } else {
   o.style.backgroundColor="#ff0000"
   inpass=false
+  document.getElementsByTagName('button')[0].disabled=1
  }
 }
 function checkInp2(v,o){try{
@@ -47,8 +48,8 @@ if(((va&&vb&&vc)||(vd))&&ve){
  } else {
   o.style.backgroundColor="#ff0000"
   inpass=false
+  document.getElementsByTagName('button')[0].disabled=1
  }
-
 }catch(err){alert(err)}
 }
 function unDisButton(){
