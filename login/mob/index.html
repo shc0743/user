@@ -56,7 +56,16 @@ function log(o){
 var a=document.getElementsByTagName('input')
 var a1=a[0].value
 var a3=localStorage.getItem("user"+a1)
-if(a3!==null||a3!==""){a3=a3.split(",")}
+if(a3==null||a3==""){
+o.innerHTML="Incorrect username or password."
+o.style.backgroundColor="red"
+setTimeout(function(){
+o.innerHTML="Login"
+o.style.backgroundColor='#00aa00'
+},3000)
+return;
+}
+a3=a3.split(",")
 if(a1=="admin"||a1==a3[0]){
 o.innerHTML="Nexting ing..."
 setTimeout(function(){
