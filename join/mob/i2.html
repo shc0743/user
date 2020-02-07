@@ -7,7 +7,7 @@
 <div style="text-align:left;border:1px solid #cccccc">
 <b>Select a storage location</b><br>
 &nbsp;<input type=radio name=storagemode onclick="" disabled>Public-All locations are available <br>
-&nbsp;<input type=radio name=storagemode onclick="tmpa=document.querySelectorAll('input[name=vermode]');for(i=0;i<;tmpa.length;i++){tmpa[i].disabled=0};delete tmpa;delete i;" id=storagelocal>Local-Local only <br>
+&nbsp;<input type=radio name=storagemode onclick="tmpa=document.querySelectorAll('input[name=vermode]');for(i=0;i<tmpa.length;i++){tmpa[i].disabled=0};delete tmpa;delete i;" id=storagelocal>Local-Local only <br>
 <br>
 <b>Select a verification mode</b><br>
 &nbsp;<input type=radio name=vermode onclick="unDisBtn(1)" value="1" disabled>Only by username<br>
