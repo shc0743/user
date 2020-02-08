@@ -68,10 +68,10 @@ localStorage.setItem("user"+usern,usern+",null")
 nxt.innerHTML="<b>Join succe!</b>"
 setTimeout("open('../../login/','_self')",750)
 } else if (sct=="2"){
-setCookieBySecond("jointemp",usern,15)
+setCookieBySecond("jointemp",usern,60)
 open("ibpw.html","_self")
 } else if (sct=="3"){
-setCookieBySecond("jointemp",usern,15)
+setCookieBySecond("jointemp",usern,60)
 open("ibpae.html","_self")
 } else {alert(sct+"\n"+typeof(sct2))}
   }catch(err){alert(err)}
