@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<title>Join for this</title>
+<body style="width:90%;margin: 0 auto;text-align:center;"><div style="font-size:50px"><b>Join for this</b></div><br>
+<div style="text-align:left;border:1px solid #cccccc">
+<b>Password</b><br><div style="text-align:center;margin: 0 auto;"><input type="password" style="width:350px;height:30px" onkeyup="checkInp2(this.value,this)" placeholder="((length>14)or((length>7)and(had letter)and(had number)))and(length<36)"></div>
+<b>E-mail</b><br><div style="text-align:center;margin: 0 auto;"><input type="email" style="width:350px;height:30px" onkeyup="checkInp3(this.value,this)"></div>
+<br>
+<div style="text-align:center;margin: 0 auto;"> &nbsp;<button disabled type=button id="nxt" style="background-color:rgb(255,0,0);width:350px;color:#ffffff;height:25px;" onclick="next(this)"><b>Next</b></button></div>
+<br></div>
+Have user?<a href="../../login/" style="text-decoration:none">Go to sign in</a>
+<br>2020..Inc<br>
+</div>
+
+<script>
+window.addEventListener("load",function(){
+wth=Number(screen.width)+"px"
+nwth=Number(screen.width)
+var inEle=document.getElementsByTagName('input')
+for(var i=0;i<inEle.length;i++){inEle[i].style.width=nwth-100+"px"}
+var btnEle=document.getElementsByTagName('button')
+for(var i=0;i<btnEle.length;i++){btnEle[i].style.width=nwth-100+"px"}
+var divEle=document.getElementsByTagName('div')
+for(var i=0;i<btnEle.length;i++){divEle[i].style.width=nwth-50+"px"}
+})
+function setCookieBySecond(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+         }
+        if (c.indexOf(name)  == 0) {
+            return c.substring(name.length, c.length);
+         }
+    }
+    return "";
+}
+window.usern=getCookie("jointemp")
+inpassa=0
+inpassb=0
+function checkInp2(v,o){
+window.pwd=o
+var va=(v.length>7)
+var vb=(v.search(/[0-9]/)!==-1)
+var vc=(v.search(/[A-z]/)!==-1)
+var vd=(v.length>14)
+var ve=(v.length<36)
+var vf=(v.indexOf(",")==-1)
+var vg=(v.indexOf(" ")==-1)
+var vh=(v.indexOf('"')==-1)
+var vi=(v.indexOf("'")==-1)
+if(((va&&vb&&vc)||(vd))&&ve&&vf&&vg&&vh&&vi){
+  inpassa=true
+  o.style.backgroundColor="#00ff00"
+  checkDisBtn()
+  //nxt.disabled=0
+  //nxt.style.backgroundColor="rgb(16,116,231)"
+ } else {
+  o.style.backgroundColor="#ff0000"
+  inpassa=false
+  checkDisBtn()
+  //nxt.disabled=1
+  //nxt.style.backgroundColor="red"
+ }
+}
+function checkInp3(v,o){
+if(v!==""){
+  window.emi=o
+  inpassb=true
+  o.style.backgroundColor="#00ff00"
+  checkDisBtn()
+  //nxt.disabled=0
+  //nxt.style.backgroundColor="rgb(16,116,231)"
+ } else {
+  o.style.backgroundColor="#ff0000"
+  inpassb=false
+  checkDisBtn()
+  //nxt.disabled=1
+  //nxt.style.backgroundColor="red"
+ }
+}
+function checkDisBtn(){
+if(inpassa&&inpassb){
+nxt.disabled=0
+nxt.style.backgroundColor="rgb(16,116,231)"
+ } else {nxt.disabled=1;nxt.style.backgroundColor="#ff0000"}
+}
+function next(o){
+nxt.innerHTML="Please wait..."
+setTimeout(function(){
+localStorage.setItem("user"+usern,usern+",pwandemail,"+pwd.value+","+emi.value)
+nxt.innerHTML="<b>Join succe!</b>"
+setTimeout("open('../../login/','_self')",750)
+},500)
+}
+</script>
