@@ -5,6 +5,7 @@
 <body style="width: 90%;max-width: 450px;margin: 0 auto;text-align:center;">
 <title>Settings</title>
 <h1>Settings</h1>
+<div>Hello,<span></span>!Welcome!</div>
 <button style="width:395px;height:30px;background-color:#00aa00;color:#ffffff;" onclick="logout()">Sign out</button><br>
 <button style="width:395px;height:30px;background-color:#00aa00;color:#ffffff;" hidden id=clruser onclick="localStorage.clear();open('../../../../','_self')">Delete all user</button><br>
 <script>
@@ -48,6 +49,8 @@ function removeCookie(cname){
 setCookie(cname,'',-1)
 }
 
+document.getElementsByTagName("span")
+[0].innerHTML=getCookie("login")
 if(getCookie("login")=="admin"){clruser.hidden=0}
 function logout(){
 removeCookie("login")
