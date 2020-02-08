@@ -6,13 +6,15 @@
 <div style="font-size:50px"><b>Sign in to this</b></div><br>
 <div style="text-align:left;border:1px solid #cccccc">
 <b>Username</b><div style="text-align:center"><input style="width:350px;height:30px" onkeyup="checkInp1(this.value,this)" placeholder="Input your username"></div>
+<div id=ipw hidden><b>Password</b><div style="text-align:center"><input style="width:350px;height:30px" onkeyup="checkInp1(this.value,this)" placeholder="Input your password"></div>
+<div id=ipae hidden><b>or E-mail:</b><div style="text-align:center"><input style="width:350px;height:30px" onkeyup="checkInp1(this.value,this)" placeholder="Input your username"></div>
 <br><div style="text-align:center"><button type=button id=nxt style="background-color:#00aa00;color:#ffffff;width:350px;height:30px" onclick="log(this)">Next</button></div>
 <br></div>
 Don't had a user?<a href="../../join/" style="text-decoration:none">Go to join</a>
 <br>2020..Inc<br>
 
 <script>
-localStorage.setItem("useradmin","admin,pwonly,123456")
+localStorage.setItem("useradmin","admin,pw,123456")
 window.addEventListener("load",function(){
 wth=Number(screen.width)+"px"
 nwth=Number(screen.width)
@@ -20,6 +22,8 @@ var inEle=document.getElementsByTagName('input')
 for(var i=0;i<inEle.length;i++){inEle[i].style.width=nwth-100+"px"}
 var btnEle=document.getElementsByTagName('button')
 for(var i=0;i<btnEle.length;i++){btnEle[i].style.width=nwth-100+"px"}
+var divEle=document.getElementsByTagName('div')
+for(var i=0;i<btnEle.length;i++){divEle[i].style.width=nwth-50+"px"}
 })
 nxt.style.width=nwth-100+"px"
 document.getElementsByTagName('input')[0].style.width=nwth-100+"px"
@@ -66,13 +70,59 @@ o.style.backgroundColor='#00aa00'
 return;
 }
 a3=a3.split(",")
-if(a1=="admin"||a1==a3[0]){
+if(a1==a3[0]){
 o.innerHTML="Nexting ing..."
 setTimeout(function(){
 if(a3[1]=="null"){
-
+o.innerHTML="Login succe!"
+setCookie("login",a1,3600)
+setTimeout("open('/','_self')",750)
 } else {
-open('ipw.html','_self')
+document.getElementsByTagName('input')[0].disabled=1
+if(a3[1]=='pw'){
+ipw.hidden=0
+nxt.onclick=function(){
+var a=document.getElementsByTagName('input')
+var a1=a[0].value
+var a2=a[1].value
+var a3=localStorage.getItem("user"+a1)
+var a3=a3.split(",")
+if(a2==a3[2]){
+o.innerHTML="Login succe!"
+setCookie("login",a1,3600)
+setTimeout("open('/','_self')",750)
+ } else {
+o.innerHTML="Incorrect username or password."
+o.style.backgroundColor="red"
+setTimeout(function(){
+o.innerHTML="Login"
+o.style.backgroundColor='#00aa00'
+},3000)
+    }
+  /*nxt.onclick*/}
+} else if(a3[1]=='pwandemail'){
+ipae.hidden=0;ipw.hidden=0
+nxt.onclick=function(){
+var a=document.getElementsByTagName('input')
+var a1=a[0].value
+var a2=a[1].value
+var a4=a[2].value
+var a3=localStorage.getItem("user"+a1)
+var a3=a3.split(",")
+if(a2==a3[2]||a4==a3[3]){
+o.innerHTML="Login succe!"
+setCookie("login",a1,3600)
+setTimeout("open('/','_self')",750)
+ } else {
+o.innerHTML="Incorrect username or password."
+o.style.backgroundColor="red"
+setTimeout(function(){
+o.innerHTML="Login"
+o.style.backgroundColor='#00aa00'
+},3000)
+    }
+  /*nxt.onclick*/}
+} else {alert(a3[1])}
  }
 },500)
 } else {
