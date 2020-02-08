@@ -33,7 +33,13 @@ function setCookieBySecond(cname, cvalue, exdays) {
 inpass=false
 function checkInp1(v,o){
 var us=localStorage.getItem("user"+v)
-if(us==""||us==null){
+var usa=(v.length>0&&v.length<36)
+var vf=(v.indexOf(",")==-1)
+var vg=(v.indexOf(" ")==-1)
+var vh=(v.indexOf('"')==-1)
+var vi=(v.indexOf("'")==-1)
+var usb=(vf&&vg&&vh&&vi)
+if((us==""||us==null)&&usa&&usb){
   inpass=true
   o.style.backgroundColor="#00ff00"
   nxt.disabled=0
