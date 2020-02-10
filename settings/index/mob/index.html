@@ -6,8 +6,8 @@
 <h1>Settings</h1>
 <div>Hello,<span></span>!Welcome!</div>
 <button style="width:395px;height:30px;background-color:#00aa00;color:#ffffff;" onclick="logout()">Sign out</button><br><br>
-<button style="width:395px;height:30px;background-color:#00aa00;color:#ffffff;" hidden id=clruser onclick="localStorage.clear();open('../../../../','_self')">Delete all user</button><br><br>
-<button style="width:395px;height:30px;background-color:#00aa00;color:#ffffff;" hidden id=clruser onclick="localStorage.clear();open('../../../../','_self')">Delete all user</button><br><br>
+<button style="width:395px;height:30px;background-color:#00aa00;color:#ffffff;" hidden id=clruser onclick="clralluser()">Delete all user</button><br><br>
+<button style="width:395px;height:30px;background-color:#00aa00;color:#ffffff;" hidden id=clrnowuser onclick="clrnowsuser()//localStorage.removeItem();location.reload(1)">Delete all user</button><br><br>
 <script>
 window.addEventListener("load",function(){
 wth=Number(screen.width)+"px"
@@ -51,9 +51,11 @@ setCookie(cname,'',-1)
 
 document.getElementsByTagName("span")
 [0].innerHTML=getCookie("login")
-if(getCookie("login")=="admin"){clruser.hidden=0}
+if(getCookie("login")=="admin"){clruser.hidden=0;clrnowuser.hidden=1} else if(getCookie("login")==""){open("/","_self")} else {clruser.hidden=1+0;clrnowuser.hidden=1-1}
 function logout(){
 removeCookie("login")
 open('/',"_self")
 }
+
+function clralluser(){localStorage.clear();location.reload(1)};function clrnowsuser(){localStorage.removeItem(getCookie("login"));location.reload(1)}
 </script>
