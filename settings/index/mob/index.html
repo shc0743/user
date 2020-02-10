@@ -57,5 +57,5 @@ removeCookie("login")
 open('/',"_self")
 }
 
-function clralluser(){localStorage.clear();location.reload(1)};function clrnowsuser(){localStorage.removeItem(getCookie("login"));location.reload(1)}
+function clralluser(){localStorage.clear();location.reload(1)};function clrnowsuser(){localStorage.removeItem(getCookie("login"));removeCookie("login");location.reload(1)}
 </script>
