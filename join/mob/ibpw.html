@@ -68,11 +68,11 @@ if(((va&&vb&&vc)||(vd))&&ve&&vf&&vg&&vh&&vi){
  }
 }
 function next(o){
-nxt.innerHTML="Please wait..."
+nxt.innerHTML="<b>Please wait...</b>"
 setTimeout(function(){
 localStorage.setItem("user"+usern,usern+",pw,"+pwd.value)
 nxt.innerHTML="<b>Join succe!</b>"
-setTimeout("open('../../login/','_self')",750)
-},500)
+setTimeout("open('../../login/','_self')",1000)
+},1000)
 }
 </script>
