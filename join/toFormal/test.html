@@ -1,0 +1,93 @@
+<script>
+(function(){try{
+num1=undefined
+var path=location.href
+if(path.search("\\?")!==-1){
+var inputContent=path.split("?")[1]
+if(inputContent.search("\\&")!==-1) { 
+inputContent=inputContent.split("&") 
+var i=0
+for(;i<inputContent.length;i++){
+if(inputContent[i].search(/num1\u003d/)!==-1){
+num1=inputContent[i].replace("num1=","");
+break;
+ }
+}
+} else {
+if(inputContent.search(/num1\u003d/)!==-1){
+num1=inputContent.replace(/num1\u003d/,"")
+ }
+}
+  }
+
+if(num1){
+num1=Number(num1)
+ } else {
+document.write("<center><h1>404</h1><p>您要访问的页面似乎出错了...</p></center>")
+ }
+}catch(err){alert(err)}})()
+(function(){try{
+num2=undefined
+var path=location.href
+if(path.search("\\?")!==-1){
+var inputContent=path.split("?")[1]
+if(inputContent.search("\\&")!==-1) { 
+inputContent=inputContent.split("&") 
+var i=0
+for(;i<inputContent.length;i++){
+if(inputContent[i].search(/num2\u003d/)!==-1){
+num2=inputContent[i].replace("num2=","");
+break;
+ }
+}
+} else {
+if(inputContent.search(/num2\u003d/)!==-1){
+num2=inputContent.replace(/num2\u003d/,"")
+ }
+}
+  }
+
+if(num2){
+num2=Number(num2)
+ } else {
+document.write("<center><h1>404</h1><p>您要访问的页面似乎出错了...</p></center>")
+ }
+}catch(err){alert(err)}})()
+(function(){try{
+num3=undefined
+var path=location.href
+if(path.search("\\?")!==-1){
+var inputContent=path.split("?")[1]
+if(inputContent.search("\\&")!==-1) { 
+inputContent=inputContent.split("&") 
+var i=0
+for(;i<inputContent.length;i++){
+if(inputContent[i].search(/num3\u003d/)!==-1){
+num3=inputContent[i].replace("num3=","");
+break;
+ }
+}
+} else {
+if(inputContent.search(/num3\u003d/)!==-1){
+num3=inputContent.replace(/num3\u003d/,"")
+ }
+}
+  }
+
+if(num3){
+num3=Number(num3)
+ } else {
+document.write("<center><h1>404</h1><p>您要访问的页面似乎出错了...</p></center>")
+ }
+}catch(err){alert(err)}})()
+
+(function(){
+var sum=num1+num2+num3
+if(sum>=10){
+document.write("恭喜您,成为了本站正式会员!")
+setTimeout("location.href='/'",5000)
+ } else {
+document.write("很遗憾,您没有成为本站正式会员。 <a href='index.html'>再来一次!</a>")
+ }
+})()
+</script>
