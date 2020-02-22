@@ -57,7 +57,9 @@ document.write("恭喜您,成为了本站正式会员!")
 setTimeout("location.href='/'",5000)
  } else if(sum>-1&&sum<10) {
 document.write("很遗憾,您没有成为本站正式会员。 <a href='index.html'>再来一次!</a>")
- }}catch(err){alert(err)}
+ } else {
+document.write("<center><h1>404</h1><p>您要访问的页面似乎出错了...</p></center>")
+} }catch(err){alert(err)}
 })()
 }catch(err){alert(err)}})()
 
