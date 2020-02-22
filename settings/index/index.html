@@ -18,6 +18,34 @@ window.location.href="comp/";
 } else {  
 window.location.href="mob/";  
 }  /*/
+
+(function(){try{
+goto=undefined
+var path=location.href
+if(path.search("\\?")!==-1){
+var inputContent=path.split("?")[1]
+if(inputContent.search("&")!==-1) { 
+inputContent=inputContent.split("&") 
+var i=0
+for(;i<inputContent.length;i++){
+if(/goto=/.test(inputContent[i])){
+goto=inputContent[i].replace("goto=","");
+break;
+ }
+}
+} else {
+if(inputContent.search(/goto=/)!==-1){
+goto=inputContent.replace(/goto=/,"")
+ }
+}
+  }
+
+if(goto){
+
+if(goto=="smallapp") location.href="smallapp/play/"
+
+ } else {
+
 try{
     if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
         window.location.href="mob/";
@@ -25,4 +53,7 @@ try{
         window.location.href="comp/";
     }
 }catch(e){}
+
+ }
+}catch(err){alert(err)}})()
 </script>
