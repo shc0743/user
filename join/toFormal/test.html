@@ -1,6 +1,6 @@
 <script>
 (function(){try{
-//num1=num2=num3=undefined
+num1=num2=num3=undefined
 var path=location.href
 if(path.search("\\?")!==-1){
 var inputContent=path.split("?")[1]
@@ -55,7 +55,7 @@ var sum=num1+num2+num3
 if(sum>9){
 document.write("恭喜您,成为了本站正式会员!")
 setTimeout("location.href='/'",5000)
- } else {
+ } else if(sum>-1&&sum<10) {
 document.write("很遗憾,您没有成为本站正式会员。 <a href='index.html'>再来一次!</a>")
  }}catch(err){alert(err)}
 })()
